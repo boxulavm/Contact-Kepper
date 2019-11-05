@@ -1,9 +1,16 @@
 import React from 'react'
+import Contacts from '../contacts/Contacts'
+import ContactForm from '../contacts/ContactForm'
 
 const Home = () => {
     return (
-        <div className="my-5">
-            <h3 className="text-info">Home</h3>
+        <div className="row mt-5">
+            <div className="col-md-6">
+                <ContactForm />
+            </div>
+            <div className="col-md-6">
+                <Contacts />
+            </div>
         </div>
     )
 }
