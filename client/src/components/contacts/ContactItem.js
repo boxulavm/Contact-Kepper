@@ -1,7 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import ContactContext from '../../context/contacts/contactContext'
 
 const ContactItem = ({ contact }) => {
+    const contactContext = useContext(ContactContext);
+    const { deleteContact, setCurrent, clearCurrent } = contactContext
+
     const { id, name, email, phone, type} = contact;
+
+    const onDelete = () => {
+        deleteContact(id);
+        clearCurrent()
+    }
+
     return (
         <div className="card text-white contact-card mb-3 shadow">
             <div className="card-header">
@@ -24,8 +34,8 @@ const ContactItem = ({ contact }) => {
                 { phone && ( <h6><i className="fas fa-phone mr-2"></i>   { phone }</h6> )}
                 <hr/>
 
-                <button className="btn btn-primary mr-2">Edit</button>
-                <button className="btn btn-info">Delete</button>
+                <button className="btn btn-primary mr-2" onClick={() => setCurrent(contact) } >Edit</button>
+                <button className="btn btn-info" onClick={onDelete}  >Delete</button>
 
             </div>
         </div>
