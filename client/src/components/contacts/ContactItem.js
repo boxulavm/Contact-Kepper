@@ -5,10 +5,10 @@ const ContactItem = ({ contact }) => {
     const contactContext = useContext(ContactContext);
     const { deleteContact, setCurrent, clearCurrent } = contactContext
 
-    const { id, name, email, phone, type} = contact;
+    const { _id, name, email, phone, type} = contact;
 
     const onDelete = () => {
-        deleteContact(id);
+        deleteContact(_id);
         clearCurrent()
     }
 
@@ -22,7 +22,7 @@ const ContactItem = ({ contact }) => {
                 style={{ float: 'right' }}
                  className={
                     'badge  ' +
-                    (type === 'professional' ? 'badge-warning' : 'badge-primary')
+                    (type === 'professional' ? 'badge-warning' : 'badge-info')
                 }>
                 {type}
                 </small>
@@ -35,7 +35,7 @@ const ContactItem = ({ contact }) => {
                 <hr/>
 
                 <button className="btn btn-primary mr-2" onClick={() => setCurrent(contact) } >Edit</button>
-                <button className="btn btn-info" onClick={onDelete}  >Delete</button>
+                <button className="btn btn-danger" onClick={onDelete}  >Delete</button>
 
             </div>
         </div>

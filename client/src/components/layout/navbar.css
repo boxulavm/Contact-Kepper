@@ -1,3 +1,11 @@
-/* nav {
-    margin-bottom: 100px !important;
-} */
+nav {
+    background-color: rgba(0, 0, 0, 0.98);
+}
+
+.nav-link {
+    color: #fff !important;
+}
+
+.nav-link:hover {
+    color: #a3a3a3 !important;
+}
